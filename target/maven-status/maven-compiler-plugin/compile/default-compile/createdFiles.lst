@@ -1,0 +1,5 @@
+com/ibm/product/Product.class
+com/ibm/product/ProductRepository.class
+com/ibm/product/ProductService.class
+com/ibm/product/ProductController.class
+com/ibm/product/ProductApplication.class
