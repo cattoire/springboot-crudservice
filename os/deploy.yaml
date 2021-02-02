@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-deployment
+  labels:
+    app: product
+spec:
+  selector:
+    matchLabels:
+      app: product
+  template:
+    metadata:
+      labels:
+        app: product
+    spec:
+      containers:
+      - name: product
+        image: us.icr.io/ucll/product:0.1
+        ports:
+        - containerPort: 9080
+        envFrom:
+        - configMapRef:
+          name: product-config
+        envFrom:
+        - secretRef:
+          name: postgresql-credentials
+       operties.hibernate.jdbc.lob.non_contextual_creation"
+          
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service
+spec:
+  selector:
+    app: product
+  ports:
+  - name: http
+    protocol: TCP
+    port: 9080
+    targetPort: 9080
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: product-service-ingress
+spec:
+  rules:
+  - host: ucll.cluster-ingress-subdomain
+    http:
+      paths:
+      - path: /ucll
+        backend:
+          serviceName: product
+          servicePort: 9080
