@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="customer server">
+    <featureManager>
+        <feature>servlet-4.0</feature>
+        <feature>springBoot-2.0</feature>
+    </featureManager>
+    <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443" />
+    <springBootApplication id="product" location="thin-product-0.0.1-SNAPSHOT.jar" name="product">
+        <applicationArgument>--server.server.context-path=/ucll</applicationArgument>
+        <applicationArgument>--server.servlet.context-path=/ucll</applicationArgument>
+    </springBootApplication>
+</server>
