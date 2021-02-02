@@ -52,5 +52,5 @@ spec:
       paths:
       - path: /ucll
         backend:
-          serviceName: product
+          serviceName: product-service
           servicePort: 9080
