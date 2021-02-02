@@ -47,7 +47,7 @@ metadata:
   name: product-service-ingress
 spec:
   rules:
-  - host: ucll.cluster-ingress-subdomain
+  - host: ucll-product.cluster-ingress-subdomain
     http:
       paths:
       - path: /ucll
