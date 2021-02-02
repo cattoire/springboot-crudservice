@@ -20,12 +20,10 @@ spec:
         ports:
         - containerPort: 9080
         envFrom:
-        - configMapRef:
-          name: product-config
-        envFrom:
-        - secretRef:
-          name: postgresql-credentials
-       operties.hibernate.jdbc.lob.non_contextual_creation"
+          - configMapRef:
+              name: product-config
+          - secretRef:
+              name: postgresql-credentials
           
 
 ---
